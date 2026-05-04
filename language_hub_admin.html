@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Mastery Hub</title>
-    <link rel="stylesheet" href="language_hub.css">
+    <link rel="stylesheet" href="language_hub_admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -46,6 +46,10 @@
                             <div class="course-item" onclick="renderLanguage('indonesian')">
                                 <img src="https://flagcdn.com/w40/id.png" width="24" alt="Indonesian">
                                 <span>Indonesian</span>
+                            </div>
+                            <div class="dropdown-footer">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--text-secondary)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                                <span id="ui-add-course">Add a new course</span>
                             </div>
                         </div>
                     </div>
@@ -110,6 +114,6 @@
     </main>
 
     <script src="language_hub_data.js"></script>
-    <script src="language_hub.js"></script>
+    <script src="language_hub_admin.js"></script>
 </body>
 </html>
