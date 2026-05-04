@@ -189,9 +189,6 @@ function renderLanguage(langKey) {
         const card = document.createElement('div');
         card.className = `week-card ${isCompleted ? 'completed' : ''}`;
         
-        // Standardized Week display (English)
-        let weekDisplay = `Week ${week.week}`;
-
         // Apply comic-style background
         const comicBgs = [
             'https://images.unsplash.com/photo-1614850523296-d8c1af93d400',
@@ -206,10 +203,14 @@ function renderLanguage(langKey) {
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
 
+        const weekDisplay = lang.weekPrefix ? `${lang.weekPrefix} ${week.week}${lang.weekSuffix || ''}` : `${lang.weekTerm || 'Week'} ${week.week}`;
+        const topic = (appLanguage === 'MY' && week.topic_my) ? week.topic_my : week.topic;
+        const concepts = (appLanguage === 'MY' && week.concepts_my) ? week.concepts_my : week.concepts;
+        
         card.innerHTML = `
             <div class="week-num" style="background: var(--accent); color: white; display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: 800; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">${weekDisplay}</div>
-            <div class="topic-name">${week.topic}</div>
-            <div class="concepts">${week.concepts}</div>
+            <div class="topic-name">${topic}</div>
+            <div class="concepts">${concepts}</div>
         `;
         card.onclick = () => toggleWeek(langKey, week.week);
         grid.appendChild(card);
