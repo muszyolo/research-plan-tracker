@@ -102,8 +102,10 @@ function init() {
         }
     };
 
-    searchBtn.onclick = performSearch;
-    searchInput.onkeypress = (e) => { if (e.key === 'Enter') performSearch(); };
+    document.getElementById('search-form').onsubmit = (e) => {
+        e.preventDefault();
+        performSearch();
+    };
 }
 
 function showDefaultState() {
