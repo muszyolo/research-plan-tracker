@@ -197,15 +197,8 @@ function renderLanguage(langKey) {
         const card = document.createElement('div');
         card.className = `week-card ${isCompleted ? 'completed' : ''}`;
         
-        // Language-specific Week term
-        let weekDisplay = "";
-        if (langKey === 'korean') {
-            weekDisplay = `${week.week}${data.weekTerm}`;
-        } else if (langKey === 'chinese') {
-            weekDisplay = `${data.weekTerm}${week.week}${data.weekSuffix}`;
-        } else {
-            weekDisplay = `${data.weekTerm} ${week.week}`;
-        }
+        // Standardized Week display (English)
+        let weekDisplay = `Week ${week.week}`;
 
         // Apply comic-style background
         const comicBgs = [
