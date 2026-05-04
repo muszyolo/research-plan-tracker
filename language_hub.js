@@ -26,7 +26,7 @@ const translations = {
         welcome: "Welcome to Language Mastery Plan for Yourself",
         noSubject: "No Subject Selected",
         pleaseClick: "Please click the 'Choose your Learning Subject' button above to view your roadmap and resources.",
-        toggleBtn: "EN | MY"
+        toggleBtn: '<img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-right: 4px;"> EN | MY <img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
     },
     'MY': {
         myCourses: "KURSUS SAYA",
@@ -41,7 +41,7 @@ const translations = {
         welcome: "Selamat Datang ke Pelan Penguasaan Bahasa Untuk Diri Anda",
         noSubject: "Tiada Subjek Dipilih",
         pleaseClick: "Sila klik butang 'Pilih Subjek Pembelajaran Anda' di atas untuk melihat pelan hala tuju dan sumber anda.",
-        toggleBtn: "MY | EN"
+        toggleBtn: '<img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-right: 4px;"> MY | EN <img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
     }
 };
 
@@ -60,7 +60,7 @@ function applyTranslations() {
     if (document.getElementById('youtube-search')) document.getElementById('youtube-search').placeholder = t.searchPlaceholder;
     if (document.getElementById('ui-resources-title')) document.getElementById('ui-resources-title').innerText = t.resourcesTitle;
     if (document.getElementById('ui-notes-title')) document.getElementById('ui-notes-title').innerText = t.notesTitle;
-    if (document.getElementById('lang-toggle-btn')) document.getElementById('lang-toggle-btn').innerText = t.toggleBtn;
+    if (document.getElementById('lang-toggle-btn')) document.getElementById('lang-toggle-btn').innerHTML = t.toggleBtn;
     
     if (!currentLanguage) {
         showDefaultState();
