@@ -172,6 +172,7 @@ body {
     font-weight: 800;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -196,6 +197,7 @@ body {
 .roadmap-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -255,13 +257,15 @@ body {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
+    text-align: center;
 }
 
 .resource-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .resource-link {
@@ -344,6 +348,7 @@ body {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search-input {
