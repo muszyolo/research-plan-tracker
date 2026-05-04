@@ -98,5 +98,55 @@ const languageData = {
             { name: "Go Filipino", url: "https://gofilipino.com/" },
             { name: "Duolingo", url: "https://www.duolingo.com/learn" }
         ]
+    },
+    malay: {
+        name: "Malay",
+        flag: "https://flagcdn.com/w80/my.png",
+        color: "#facc15",
+        roadmap: [
+            { week: 1, topic: "Alphabet & Greetings", concepts: "Apa khabar, Terima kasih" },
+            { week: 2, topic: "Introductions", concepts: "Nama saya..., Saya, Awak" },
+            { week: 3, topic: "Core Verbs", concepts: "Nak, Makan, Minum" },
+            { week: 4, topic: "Time Indicators", concepts: "Sudah, Sedang, Akan" },
+            { week: 5, topic: "Questions", concepts: "Apa, Bila, Di mana" },
+            { week: 6, topic: "Numbers & Time", concepts: "Counting 1-100" },
+            { week: 7, topic: "Adjectives", concepts: "Noun + Adjective + Yang" },
+            { week: 8, topic: "Prepositions", concepts: "Di, Ke, Dari" },
+            { week: 9, topic: "Affixes", concepts: "MeN- and Pe-" },
+            { week: 10, topic: "Conjunctions", concepts: "Dan, Tetapi, Kerana" },
+            { week: 11, topic: "Colloquialism", concepts: "Lah, Kan, Jom" },
+            { week: 12, topic: "Conversations", ordering: "Food & Directions" }
+        ],
+        resources: [
+            { name: "Learn Malay with Cikgu", url: "https://www.youtube.com/results?search_query=Learn+Malay+with+Cikgu" },
+            { name: "Aida's Malay Learning", url: "https://www.youtube.com/results?search_query=Aida's+Malay+Learning" },
+            { name: "Memrise (Malay)", url: "https://www.memrise.com/courses/english/malay/" },
+            { name: "Omniglot (Malay)", url: "https://omniglot.com/language/phrases/malay.php" }
+        ]
+    },
+    indonesian: {
+        name: "Indonesian",
+        flag: "https://flagcdn.com/w80/id.png",
+        color: "#ef4444",
+        roadmap: [
+            { week: 1, topic: "Alphabet & Greetings", concepts: "Halo, Apa kabar" },
+            { week: 2, topic: "Introductions", concepts: "Aku, Kamu" },
+            { week: 3, topic: "Core Verbs", concepts: "Mau, Makan, Minum" },
+            { week: 4, topic: "Time Indicators", concepts: "Sudah, Sedang, Akan" },
+            { week: 5, topic: "Questions", concepts: "Apa, Kapan, Di mana" },
+            { week: 6, topic: "Numbers & Time", concepts: "Counting 1-100" },
+            { week: 7, topic: "Adjectives", concepts: "Noun + Adjective + Yang" },
+            { week: 8, topic: "Prepositions", concepts: "Di, Ke, Dari" },
+            { week: 9, topic: "Affixes", concepts: "MeN- and Pe-" },
+            { week: 10, topic: "Conjunctions", concepts: "Dan, Tetapi, Karena" },
+            { week: 11, topic: "Bahasa Gaul", concepts: "Banget, Sih, Dong" },
+            { week: 12, topic: "Conversations", concepts: "Jakarta interactions" }
+        ],
+        resources: [
+            { name: "IndonesianPod101", url: "https://www.indonesianpod101.com/" },
+            { name: "Learn Indonesian with Cinta", url: "https://www.youtube.com/results?search_query=Learn+Indonesian+with+Cinta" },
+            { name: "LearningIndonesian", url: "https://www.learningindonesian.com/" },
+            { name: "Duolingo", url: "https://www.duolingo.com/learn" }
+        ]
     }
 };
