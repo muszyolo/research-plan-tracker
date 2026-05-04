@@ -23,7 +23,7 @@ const translations = {
         notesTitle: "Daily Study Notes",
         notesPlaceholder: "Write your thoughts, vocabulary, or research ideas here...",
         chooseSubject: "Choose your Learning Subject",
-        welcome: "Welcome to Language Mastery",
+        welcome: "Welcome to Language Mastery Plan for Yourself",
         noSubject: "No Subject Selected",
         pleaseClick: "Please click the 'Choose your Learning Subject' button above to view your roadmap and resources.",
         toggleBtn: "EN | MY"
@@ -38,7 +38,7 @@ const translations = {
         notesTitle: "Nota Kajian Harian",
         notesPlaceholder: "Tulis pemikiran, kosa kata, atau idea kajian anda di sini...",
         chooseSubject: "Pilih Subjek Pembelajaran Anda",
-        welcome: "Selamat Datang ke Penguasaan Bahasa",
+        welcome: "Selamat Datang ke Pelan Penguasaan Bahasa Untuk Diri Anda",
         noSubject: "Tiada Subjek Dipilih",
         pleaseClick: "Sila klik butang 'Pilih Subjek Pembelajaran Anda' di atas untuk melihat pelan hala tuju dan sumber anda.",
         toggleBtn: "MY | EN"
@@ -173,7 +173,9 @@ function renderLanguage(langKey) {
     });
 
     // Update Header Title
-    const titleText = appLanguage === 'EN' ? `${data.name} Mastery` : `Penguasaan ${data.name}`;
+    const titleText = appLanguage === 'EN' 
+        ? `${data.name} Mastery Plan for Yourself` 
+        : `Pelan Penguasaan ${data.name} Untuk Diri Anda`;
     document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${titleText}`;
     document.documentElement.style.setProperty('--accent', data.color);
 
