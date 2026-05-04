@@ -1,4 +1,4 @@
-let currentLanguage = 'english';
+let currentLanguage = localStorage.getItem('currentLanguage') || null;
 let progress = JSON.parse(localStorage.getItem('langProgress')) || {
     english: [], korean: [], chinese: [], philippine: []
 };
@@ -12,12 +12,17 @@ let languageNotes = JSON.parse(localStorage.getItem('langNotes')) || {
 const THESIS_DEADLINE = "2026-11-30";
 
 function init() {
-    renderLanguage(currentLanguage);
+    if (currentLanguage) {
+        renderLanguage(currentLanguage);
+    } else {
+        showDefaultState();
+    }
     updateCountdown();
     
     // Auto-save notes
     const notesArea = document.getElementById('daily-notes');
     notesArea.addEventListener('input', (e) => {
+        if (!currentLanguage) return;
         languageNotes[currentLanguage] = e.target.value;
         localStorage.setItem('langNotes', JSON.stringify(languageNotes));
     });
@@ -29,8 +34,8 @@ function init() {
     const performSearch = () => {
         const query = searchInput.value.trim();
         if (query) {
-            const langName = languageData[currentLanguage].name;
-            const fullQuery = `${langName} language learning ${query}`;
+            const langName = currentLanguage ? languageData[currentLanguage].name : "General";
+            const fullQuery = currentLanguage ? `${langName} language learning ${query}` : query;
             const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(fullQuery)}`;
             window.open(url, '_blank');
         }
@@ -38,6 +43,30 @@ function init() {
 
     searchBtn.onclick = performSearch;
     searchInput.onkeypress = (e) => { if (e.key === 'Enter') performSearch(); };
+}
+
+function showDefaultState() {
+    document.getElementById('current-lang-name').innerText = "Choose your Learning Subject";
+    document.getElementById('current-lang-flag').style.display = 'none';
+    
+    document.getElementById('lang-title').innerHTML = `Welcome to Language Mastery`;
+    document.documentElement.style.setProperty('--accent', '#3b82f6');
+    
+    document.getElementById('daily-notes').value = "";
+    document.getElementById('daily-notes').placeholder = "Select a subject first to start taking notes...";
+    
+    document.getElementById('roadmap-grid').innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 3rem; background: var(--glass); border-radius: 16px; border: 1px dashed var(--border);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 1rem; opacity: 0.5;">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">No Subject Selected</h3>
+            <p>Please click the "Choose your Learning Subject" button above to view your roadmap and resources.</p>
+        </div>
+    `;
+    
+    document.getElementById('resource-list').innerHTML = "";
+    document.getElementById('progress-bar').style.width = `0%`;
 }
 
 function updateCountdown() {
@@ -53,10 +82,13 @@ function updateCountdown() {
 function renderLanguage(langKey) {
     const data = languageData[langKey];
     currentLanguage = langKey;
+    localStorage.setItem('currentLanguage', langKey);
     
     // Update Header Dropdown UI
     document.getElementById('current-lang-name').innerText = data.name;
-    document.getElementById('current-lang-flag').src = data.flag;
+    const flagImg = document.getElementById('current-lang-flag');
+    flagImg.src = data.flag;
+    flagImg.style.display = 'block';
     
     // Update active state in dropdown
     document.querySelectorAll('.course-item').forEach(item => {
