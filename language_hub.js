@@ -114,6 +114,12 @@ function showDefaultState() {
     document.getElementById('lang-title').innerHTML = t.welcome;
     document.documentElement.style.setProperty('--accent', '#3b82f6');
     
+    // Set default generic study wallpaper
+    document.body.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
+    
     document.getElementById('daily-notes').value = "";
     document.getElementById('daily-notes').placeholder = appLanguage === 'EN' ? "Select a subject first to start taking notes..." : "Pilih subjek dahulu untuk mula mengambil nota...";
     
@@ -170,6 +176,12 @@ function renderLanguage(langKey) {
     const titleText = appLanguage === 'EN' ? `${data.name} Mastery` : `Penguasaan ${data.name}`;
     document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${titleText}`;
     document.documentElement.style.setProperty('--accent', data.color);
+
+    // Apply the unique language wallpaper with a dark overlay
+    document.body.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('${data.wallpaper}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
 
     // Update Notes
     document.getElementById('daily-notes').value = languageNotes[langKey] || "";
