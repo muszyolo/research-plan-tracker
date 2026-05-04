@@ -143,6 +143,53 @@ function calculateStreak() {
     document.getElementById('streak-count').innerText = streak;
 }
 
+// --- Google Calendar Sync Logic (iCal Generation) ---
+const researchMilestones = [
+    { date: "20260401", summary: "Research Phase 1: Foundation", desc: "Setting up Autism Research Matrix & Methodology" },
+    { date: "20260501", summary: "Literature Synthesis & Gap Analysis", desc: "Identifying gaps in Taif caregiver literature" },
+    { date: "20260601", summary: "Methodology Refinement", desc: "Finalizing Cluster Analysis statistical design" },
+    { date: "20260701", summary: "Ethics Approval Submission", desc: "Submitting papers for University Ethics Committee" },
+    { date: "20260801", summary: "Data Collection: Taif Region", desc: "Field work and caregiver survey distribution" },
+    { date: "20260901", summary: "Data Cleaning & Preliminary Clustering", desc: "Starting the statistical segmentation" },
+    { date: "20261001", summary: "NLP Feedback Processing", desc: "Analyzing qualitative caregiver responses" },
+    { date: "20261101", summary: "Statistical Results Verification", desc: "Validating cluster reliability" },
+    { date: "20261201", summary: "Drafting: Methodology Chapter", desc: "Writing up the core research process" },
+    { date: "20270101", summary: "Drafting: Results & Discussion", desc: "Interpreting the cluster analysis findings" },
+    { date: "20270201", summary: "Supervisor Review & Revisions", desc: "Applying final feedback from supervisor" },
+    { date: "20270301", summary: "Final Citation & Formatting Audit", desc: "Preparing document for submission" },
+    { date: "20270401", summary: "FINAL THESIS SUBMISSION", desc: "Completion of Master by Research 🎓" }
+];
+
+function exportToCalendar() {
+    let icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Research Tracker//EN",
+        "CALSCALE:GREGORIAN"
+    ];
+
+    researchMilestones.forEach(m => {
+        icsContent.push("BEGIN:VEVENT");
+        icsContent.push(`DTSTART;VALUE=DATE:${m.date}`);
+        icsContent.push(`DTEND;VALUE=DATE:${m.date}`);
+        icsContent.push(`SUMMARY:${m.summary}`);
+        icsContent.push(`DESCRIPTION:${m.desc}`);
+        icsContent.push("END:VEVENT");
+    });
+
+    icsContent.push("END:VCALENDAR");
+    
+    const blob = new Blob([icsContent.join("\r\n")], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.setAttribute('download', 'research_roadmap.ics');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    alert("Roadmap exported! You can now import 'research_roadmap.ics' into your Google Calendar.");
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     updateUIForDate();
