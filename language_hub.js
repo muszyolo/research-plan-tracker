@@ -203,7 +203,7 @@ function renderLanguage(langKey) {
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
 
-        const weekDisplay = lang.weekPrefix ? `${lang.weekPrefix} ${week.week}${lang.weekSuffix || ''}` : `${lang.weekTerm || 'Week'} ${week.week}`;
+        const weekDisplay = data.weekPrefix ? `${data.weekPrefix} ${week.week}${data.weekSuffix || ''}` : `${data.weekTerm || 'Week'} ${week.week}`;
         const topic = (appLanguage === 'MY' && week.topic_my) ? week.topic_my : week.topic;
         const concepts = (appLanguage === 'MY' && week.concepts_my) ? week.concepts_my : week.concepts;
         
