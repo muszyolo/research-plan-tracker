@@ -115,7 +115,7 @@ const languageData = {
     malay: {
         name: "Malay",
         flag: "https://flagcdn.com/w80/my.png",
-        color: "#facc15",
+        color: "#ca8a04",
         wallpaper: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1920&auto=format&fit=crop",
         weekTerm: "Minggu",
         comicSearch: "malaysia-illustration,comic",
