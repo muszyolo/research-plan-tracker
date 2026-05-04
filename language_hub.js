@@ -66,6 +66,7 @@ function applyTranslations() {
         showDefaultState();
     } else {
         document.getElementById('daily-notes').placeholder = t.notesPlaceholder;
+        renderLanguage(currentLanguage); // Re-render to update the translated title
     }
 }
 
@@ -166,7 +167,8 @@ function renderLanguage(langKey) {
     });
 
     // Update Header Title
-    document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${data.name} Mastery`;
+    const titleText = appLanguage === 'EN' ? `${data.name} Mastery` : `Penguasaan ${data.name}`;
+    document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${titleText}`;
     document.documentElement.style.setProperty('--accent', data.color);
 
     // Update Notes
