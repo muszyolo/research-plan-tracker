@@ -88,6 +88,13 @@ function init() {
         localStorage.setItem('langNotes', JSON.stringify(languageNotes));
     });
 
+    // Translation toggle
+    const toggleBtn = document.getElementById('lang-toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.onclick = null; // Clear inline handler
+        toggleBtn.addEventListener('click', toggleAppLanguage);
+    }
+
     // Form handling is now native HTML for better mobile support
 }
 
