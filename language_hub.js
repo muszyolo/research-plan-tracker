@@ -1,4 +1,5 @@
 let currentLanguage = localStorage.getItem('currentLanguage') || null;
+let appLanguage = localStorage.getItem('appLanguage') || 'EN';
 let progress = JSON.parse(localStorage.getItem('langProgress')) || {
     english: [], korean: [], chinese: [], philippine: [], malay: [], indonesian: []
 };
@@ -11,7 +12,66 @@ let languageNotes = JSON.parse(localStorage.getItem('langNotes')) || {
 // Default Thesis Deadline (6 months from now)
 const THESIS_DEADLINE = "2026-11-30";
 
+const translations = {
+    'EN': {
+        myCourses: "MY COURSES",
+        addNewCourse: "Add a new course",
+        daysLeft: "DAYS LEFT",
+        roadmapDesc: "Your 12-week roadmap to fluency.",
+        searchPlaceholder: "Search YouTube for lessons...",
+        resourcesTitle: "Free Online Resources",
+        notesTitle: "Daily Study Notes",
+        notesPlaceholder: "Write your thoughts, vocabulary, or research ideas here...",
+        chooseSubject: "Choose your Learning Subject",
+        welcome: "Welcome to Language Mastery",
+        noSubject: "No Subject Selected",
+        pleaseClick: "Please click the 'Choose your Learning Subject' button above to view your roadmap and resources.",
+        toggleBtn: "EN | MY"
+    },
+    'MY': {
+        myCourses: "KURSUS SAYA",
+        addNewCourse: "Tambah kursus baru",
+        daysLeft: "HARI TINGGAL",
+        roadmapDesc: "Pelan hala tuju 12 minggu anda untuk fasih.",
+        searchPlaceholder: "Cari pelajaran di YouTube...",
+        resourcesTitle: "Sumber Dalam Talian Percuma",
+        notesTitle: "Nota Kajian Harian",
+        notesPlaceholder: "Tulis pemikiran, kosa kata, atau idea kajian anda di sini...",
+        chooseSubject: "Pilih Subjek Pembelajaran Anda",
+        welcome: "Selamat Datang ke Penguasaan Bahasa",
+        noSubject: "Tiada Subjek Dipilih",
+        pleaseClick: "Sila klik butang 'Pilih Subjek Pembelajaran Anda' di atas untuk melihat pelan hala tuju dan sumber anda.",
+        toggleBtn: "MY | EN"
+    }
+};
+
+function toggleAppLanguage() {
+    appLanguage = appLanguage === 'EN' ? 'MY' : 'EN';
+    localStorage.setItem('appLanguage', appLanguage);
+    applyTranslations();
+}
+
+function applyTranslations() {
+    const t = translations[appLanguage];
+    document.getElementById('ui-my-courses').innerText = t.myCourses;
+    document.getElementById('ui-add-course').innerText = t.addNewCourse;
+    document.getElementById('ui-days-left').innerText = t.daysLeft;
+    document.getElementById('ui-roadmap-desc').innerText = t.roadmapDesc;
+    document.getElementById('youtube-search').placeholder = t.searchPlaceholder;
+    document.getElementById('ui-resources-title').innerText = t.resourcesTitle;
+    document.getElementById('ui-notes-title').innerText = t.notesTitle;
+    document.getElementById('lang-toggle-btn').innerText = t.toggleBtn;
+    
+    if (!currentLanguage) {
+        showDefaultState();
+    } else {
+        document.getElementById('daily-notes').placeholder = t.notesPlaceholder;
+    }
+}
+
 function init() {
+    applyTranslations();
+    
     if (currentLanguage) {
         renderLanguage(currentLanguage);
     } else {
@@ -46,22 +106,23 @@ function init() {
 }
 
 function showDefaultState() {
-    document.getElementById('current-lang-name').innerText = "Choose your Learning Subject";
+    const t = translations[appLanguage];
+    document.getElementById('current-lang-name').innerText = t.chooseSubject;
     document.getElementById('current-lang-flag').style.display = 'none';
     
-    document.getElementById('lang-title').innerHTML = `Welcome to Language Mastery`;
+    document.getElementById('lang-title').innerHTML = t.welcome;
     document.documentElement.style.setProperty('--accent', '#3b82f6');
     
     document.getElementById('daily-notes').value = "";
-    document.getElementById('daily-notes').placeholder = "Select a subject first to start taking notes...";
+    document.getElementById('daily-notes').placeholder = appLanguage === 'EN' ? "Select a subject first to start taking notes..." : "Pilih subjek dahulu untuk mula mengambil nota...";
     
     document.getElementById('roadmap-grid').innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 3rem; background: var(--glass); border-radius: 16px; border: 1px dashed var(--border);">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 1rem; opacity: 0.5;">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
-            <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">No Subject Selected</h3>
-            <p>Please click the "Choose your Learning Subject" button above to view your roadmap and resources.</p>
+            <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">${t.noSubject}</h3>
+            <p>${t.pleaseClick}</p>
         </div>
     `;
     
