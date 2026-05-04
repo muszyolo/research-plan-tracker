@@ -53,14 +53,14 @@ function toggleAppLanguage() {
 
 function applyTranslations() {
     const t = translations[appLanguage];
-    document.getElementById('ui-my-courses').innerText = t.myCourses;
-    document.getElementById('ui-add-course').innerText = t.addNewCourse;
-    document.getElementById('ui-days-left').innerText = t.daysLeft;
-    document.getElementById('ui-roadmap-desc').innerText = t.roadmapDesc;
-    document.getElementById('youtube-search').placeholder = t.searchPlaceholder;
-    document.getElementById('ui-resources-title').innerText = t.resourcesTitle;
-    document.getElementById('ui-notes-title').innerText = t.notesTitle;
-    document.getElementById('lang-toggle-btn').innerText = t.toggleBtn;
+    if (document.getElementById('ui-my-courses')) document.getElementById('ui-my-courses').innerText = t.myCourses;
+    if (document.getElementById('ui-add-course')) document.getElementById('ui-add-course').innerText = t.addNewCourse;
+    if (document.getElementById('ui-days-left')) document.getElementById('ui-days-left').innerText = t.daysLeft;
+    if (document.getElementById('ui-roadmap-desc')) document.getElementById('ui-roadmap-desc').innerText = t.roadmapDesc;
+    if (document.getElementById('youtube-search')) document.getElementById('youtube-search').placeholder = t.searchPlaceholder;
+    if (document.getElementById('ui-resources-title')) document.getElementById('ui-resources-title').innerText = t.resourcesTitle;
+    if (document.getElementById('ui-notes-title')) document.getElementById('ui-notes-title').innerText = t.notesTitle;
+    if (document.getElementById('lang-toggle-btn')) document.getElementById('lang-toggle-btn').innerText = t.toggleBtn;
     
     if (!currentLanguage) {
         showDefaultState();
