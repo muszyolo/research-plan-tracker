@@ -13,7 +13,6 @@ const THESIS_DEADLINE = "2026-11-30";
 
 function init() {
     renderLanguage(currentLanguage);
-    setupEventListeners();
     updateCountdown();
     
     // Auto-save notes
@@ -47,19 +46,27 @@ function updateCountdown() {
     const diffTime = deadline - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    document.getElementById('days-count').innerText = diffDays > 0 ? diffDays : 0;
+    const countEl = document.getElementById('days-count-header');
+    if (countEl) countEl.innerText = diffDays > 0 ? diffDays : 0;
 }
 
 function renderLanguage(langKey) {
     const data = languageData[langKey];
     currentLanguage = langKey;
     
-    // Update active button
-    document.querySelectorAll('.flag-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === langKey);
+    // Update Header Dropdown UI
+    document.getElementById('current-lang-name').innerText = data.name;
+    document.getElementById('current-lang-flag').src = data.flag;
+    
+    // Update active state in dropdown
+    document.querySelectorAll('.course-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.innerText.trim().toLowerCase() === data.name.toLowerCase()) {
+            item.classList.add('active');
+        }
     });
 
-    // Update Header
+    // Update Header Title
     document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${data.name} Mastery`;
     document.documentElement.style.setProperty('--accent', data.color);
 
@@ -91,7 +98,11 @@ function renderLanguage(langKey) {
         link.href = res.url;
         link.className = 'resource-link';
         link.target = '_blank';
-        link.innerText = res.name;
+        link.title = `Visit ${res.name}`;
+        link.innerHTML = `
+            <svg class="res-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.41l-9.29 9.29-1.42-1.42L17.59 5H14V3zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/></svg>
+            ${res.name}
+        `;
         resourceList.appendChild(link);
     });
 
@@ -115,12 +126,6 @@ function updateProgressBar(langKey) {
     const total = 12;
     const percentage = (completed / total) * 100;
     document.getElementById('progress-bar').style.width = `${percentage}%`;
-}
-
-function setupEventListeners() {
-    document.querySelectorAll('.flag-btn').forEach(btn => {
-        btn.onclick = () => renderLanguage(btn.dataset.lang);
-    });
 }
 
 document.addEventListener('DOMContentLoaded', init);

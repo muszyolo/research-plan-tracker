@@ -11,28 +11,45 @@
 </head>
 <body>
 
-    <aside class="sidebar">
-        <button class="flag-btn active" data-lang="english" title="English (UK)">
-            <img src="https://flagcdn.com/w80/gb.png" width="30" style="border-radius: 2px;">
-        </button>
-        <button class="flag-btn" data-lang="chinese" title="Chinese (China)">
-            <img src="https://flagcdn.com/w80/cn.png" width="30" style="border-radius: 2px;">
-        </button>
-        <button class="flag-btn" data-lang="philippine" title="Philippine">
-            <img src="https://flagcdn.com/w80/ph.png" width="30" style="border-radius: 2px;">
-        </button>
-        <button class="flag-btn" data-lang="korean" title="Korean">
-            <img src="https://flagcdn.com/w80/kr.png" width="30" style="border-radius: 2px;">
-        </button>
-
-        <div class="thesis-timer" title="Days until Thesis Submission">
-            <span class="days-count" id="days-count">0</span>
-            DAYS
-        </div>
-    </aside>
-
     <main class="main-content">
         <header class="header">
+            <div class="header-top">
+                <div class="course-selector" id="course-selector">
+                    <button class="course-btn" id="current-course-btn">
+                        <img id="current-lang-flag" src="https://flagcdn.com/w40/gb.png" width="24" alt="flag">
+                        <span id="current-lang-name">English</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>
+                    </button>
+                    <div class="course-dropdown" id="course-dropdown">
+                        <div class="dropdown-header">MY COURSES</div>
+                        <div class="course-item active" onclick="renderLanguage('english')">
+                            <img src="https://flagcdn.com/w40/gb.png" width="24" alt="English">
+                            <span>English</span>
+                        </div>
+                        <div class="course-item" onclick="renderLanguage('korean')">
+                            <img src="https://flagcdn.com/w40/kr.png" width="24" alt="Korean">
+                            <span>Korean</span>
+                        </div>
+                        <div class="course-item" onclick="renderLanguage('chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" width="24" alt="Chinese">
+                            <span>Chinese</span>
+                        </div>
+                        <div class="course-item" onclick="renderLanguage('philippine')">
+                            <img src="https://flagcdn.com/w40/ph.png" width="24" alt="Philippine">
+                            <span>Philippine</span>
+                        </div>
+                        <div class="dropdown-footer">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--text-secondary)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            <span>Add a new course</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="thesis-timer-header">
+                    <span class="days-count-header" id="days-count-header">0</span>
+                    <span class="timer-label">DAYS LEFT</span>
+                </div>
+            </div>
             <h1 class="lang-title" id="lang-title">🇬🇧 English Mastery</h1>
             <p style="color: var(--text-secondary);">Your 12-week roadmap to fluency.</p>
             <div class="progress-container">
