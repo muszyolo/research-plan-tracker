@@ -28,7 +28,7 @@ const languageData = {
         ]
     },
     korean: {
-        name: "Korean",
+        name: "Hangul",
         flag: "https://flagcdn.com/w80/kr.png",
         color: "#ef4444",
         wallpaper: "https://images.unsplash.com/photo-1538485399081-7191377e8241?q=80&w=1920&auto=format&fit=crop",
@@ -56,7 +56,7 @@ const languageData = {
         ]
     },
     chinese: {
-        name: "Chinese",
+        name: "Mandarin",
         flag: "https://flagcdn.com/w80/cn.png",
         color: "#f59e0b",
         wallpaper: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1920&auto=format&fit=crop",
@@ -85,7 +85,7 @@ const languageData = {
         ]
     },
     philippine: {
-        name: "Philippine",
+        name: "Tagalog",
         flag: "https://flagcdn.com/w80/ph.png",
         color: "#10b981",
         wallpaper: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1920&auto=format&fit=crop",
