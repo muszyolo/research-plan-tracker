@@ -146,10 +146,10 @@ function calculateStreak() {
 // --- Google Calendar Sync Logic (iCal Generation) ---
 const researchMilestones = [
     { date: "20260401", summary: "Research Phase 1: Foundation", desc: "Setting up Autism Research Matrix & Methodology" },
-    { date: "20260501", summary: "Literature Synthesis & Gap Analysis", desc: "Identifying gaps in Taif caregiver literature" },
+    { date: "20260501", summary: "Literature Synthesis & Gap Analysis", desc: "Identifying gaps in Malaysia caregiver literature" },
     { date: "20260601", summary: "Methodology Refinement", desc: "Finalizing Cluster Analysis statistical design" },
     { date: "20260701", summary: "Ethics Approval Submission", desc: "Submitting papers for University Ethics Committee" },
-    { date: "20260801", summary: "Data Collection: Taif Region", desc: "Field work and caregiver survey distribution" },
+    { date: "20260801", summary: "Data Collection: Malaysia Region", desc: "Field work and caregiver survey distribution" },
     { date: "20260901", summary: "Data Cleaning & Preliminary Clustering", desc: "Starting the statistical segmentation" },
     { date: "20261001", summary: "NLP Feedback Processing", desc: "Analyzing qualitative caregiver responses" },
     { date: "20261101", summary: "Statistical Results Verification", desc: "Validating cluster reliability" },
