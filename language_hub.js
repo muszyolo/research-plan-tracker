@@ -190,12 +190,37 @@ function renderLanguage(langKey) {
     const grid = document.getElementById('roadmap-grid');
     grid.innerHTML = '';
     
-    data.roadmap.forEach(week => {
+    data.roadmap.forEach((week, index) => {
         const isCompleted = progress[langKey].includes(week.week);
         const card = document.createElement('div');
         card.className = `week-card ${isCompleted ? 'completed' : ''}`;
+        
+        // Language-specific Week term
+        let weekDisplay = "";
+        if (langKey === 'korean') {
+            weekDisplay = `${week.week}${data.weekTerm}`;
+        } else if (langKey === 'chinese') {
+            weekDisplay = `${data.weekTerm}${week.week}${data.weekSuffix}`;
+        } else {
+            weekDisplay = `${data.weekTerm} ${week.week}`;
+        }
+
+        // Apply comic-style background
+        const comicBgs = [
+            'https://images.unsplash.com/photo-1614850523296-d8c1af93d400',
+            'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe',
+            'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e',
+            'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e',
+            'https://images.unsplash.com/photo-1550684848-fac1c5b4e853',
+            'https://images.unsplash.com/photo-1558478551-1a378f63ad28'
+        ];
+        const bgUrl = `${comicBgs[index % comicBgs.length]}?q=80&w=400&auto=format&fit=crop`;
+        card.style.backgroundImage = `linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.95)), url('${bgUrl}')`;
+        card.style.backgroundSize = 'cover';
+        card.style.backgroundPosition = 'center';
+
         card.innerHTML = `
-            <div class="week-num">Week ${week.week}</div>
+            <div class="week-num" style="background: var(--accent); color: white; display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: 800; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">${weekDisplay}</div>
             <div class="topic-name">${week.topic}</div>
             <div class="concepts">${week.concepts}</div>
         `;

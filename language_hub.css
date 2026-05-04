@@ -216,7 +216,8 @@ body {
 
 .week-card:hover {
     border-color: var(--accent);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .week-card.completed {

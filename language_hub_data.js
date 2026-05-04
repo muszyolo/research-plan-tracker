@@ -4,6 +4,8 @@ const languageData = {
         flag: "https://flagcdn.com/w80/gb.png",
         color: "#3b82f6",
         wallpaper: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "Week",
+        comicSearch: "london-illustration,comic",
         roadmap: [
             { week: 1, topic: "Nouns, Pronouns, Articles", concepts: "Countable/Uncountable, A/An/The" },
             { week: 2, topic: "Adjectives & Adverbs", concepts: "Comparisons, Degrees" },
@@ -30,6 +32,8 @@ const languageData = {
         flag: "https://flagcdn.com/w80/kr.png",
         color: "#ef4444",
         wallpaper: "https://images.unsplash.com/photo-1538485399081-7191377e8241?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "주차",
+        comicSearch: "korea-illustration,anime",
         roadmap: [
             { week: 1, topic: "Hangul Basics", concepts: "Vowels & Consonants" },
             { week: 2, topic: "Batchim", concepts: "Complex Pronunciation" },
@@ -56,6 +60,9 @@ const languageData = {
         flag: "https://flagcdn.com/w80/cn.png",
         color: "#f59e0b",
         wallpaper: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "第",
+        weekSuffix: "周",
+        comicSearch: "china-illustration,comic",
         roadmap: [
             { week: 1, topic: "Pinyin & 4 Tones", concepts: "Mastering Tones" },
             { week: 2, topic: "Tone Combinations", concepts: "Rhythm" },
@@ -82,6 +89,8 @@ const languageData = {
         flag: "https://flagcdn.com/w80/ph.png",
         color: "#10b981",
         wallpaper: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "Linggo",
+        comicSearch: "philippines-illustration,cartoon",
         roadmap: [
             { week: 1, topic: "Alphabet & Greetings", concepts: "Abakada" },
             { week: 2, topic: "Introductions", concepts: "Ako si..." },
@@ -108,6 +117,8 @@ const languageData = {
         flag: "https://flagcdn.com/w80/my.png",
         color: "#facc15",
         wallpaper: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "Minggu",
+        comicSearch: "malaysia-illustration,comic",
         roadmap: [
             { week: 1, topic: "Alphabet & Greetings", concepts: "Apa khabar, Terima kasih" },
             { week: 2, topic: "Introductions", concepts: "Nama saya..., Saya, Awak" },
@@ -134,6 +145,8 @@ const languageData = {
         flag: "https://flagcdn.com/w80/id.png",
         color: "#ef4444",
         wallpaper: "https://images.unsplash.com/photo-1555040479-c949debe66c1?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "Minggu",
+        comicSearch: "indonesia-illustration,comic",
         roadmap: [
             { week: 1, topic: "Alphabet & Greetings", concepts: "Halo, Apa kabar" },
             { week: 2, topic: "Introductions", concepts: "Aku, Kamu" },
