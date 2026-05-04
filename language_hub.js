@@ -65,7 +65,10 @@ function showDefaultState() {
         </div>
     `;
     
-    document.getElementById('resource-list').innerHTML = "";
+    // Hide distracting sections when no subject is selected
+    document.querySelector('.resources-section').style.display = 'none';
+    document.querySelector('.notes-section').style.display = 'none';
+    
     document.getElementById('progress-bar').style.width = `0%`;
 }
 
@@ -83,6 +86,9 @@ function renderLanguage(langKey) {
     const data = languageData[langKey];
     currentLanguage = langKey;
     localStorage.setItem('currentLanguage', langKey);
+    // Show sections that might have been hidden by the default state
+    document.querySelector('.resources-section').style.display = 'block';
+    document.querySelector('.notes-section').style.display = 'block';
     
     // Update Header Dropdown UI
     document.getElementById('current-lang-name').innerText = data.name;
