@@ -116,8 +116,9 @@ body {
 }
 
 .course-item.active {
-    color: #3b82f6;
-    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--accent);
 }
 
 .dropdown-footer {
