@@ -88,24 +88,7 @@ function init() {
         localStorage.setItem('langNotes', JSON.stringify(languageNotes));
     });
 
-    // YouTube Search logic
-    const searchInput = document.getElementById('youtube-search');
-    const searchBtn = document.getElementById('search-btn');
-
-    const performSearch = () => {
-        const query = searchInput.value.trim();
-        if (query) {
-            const langName = currentLanguage ? languageData[currentLanguage].name : "General";
-            const fullQuery = currentLanguage ? `${langName} language learning ${query}` : query;
-            const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(fullQuery)}`;
-            window.open(url, '_blank');
-        }
-    };
-
-    document.getElementById('search-form').onsubmit = (e) => {
-        e.preventDefault();
-        performSearch();
-    };
+    // Form handling is now native HTML for better mobile support
 }
 
 function showDefaultState() {
