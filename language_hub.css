@@ -132,6 +132,12 @@ body {
     cursor: not-allowed;
 }
 
+.header-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 /* Thesis Timer Header */
 .thesis-timer-header {
     display: flex;
