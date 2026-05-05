@@ -274,10 +274,9 @@ body {
 }
 
 .resource-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
     margin-top: 2rem;
 }
 
