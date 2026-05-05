@@ -146,6 +146,11 @@ function renderLanguage(langKey) {
     const data = languageData[langKey];
     currentLanguage = langKey;
     localStorage.setItem('currentLanguage', langKey);
+    
+    // Safety check for new languages not in local storage yet
+    if (!progress[langKey]) progress[langKey] = [];
+    if (!languageNotes[langKey]) languageNotes[langKey] = "";
+    
     // Show sections that might have been hidden by the default state
     document.querySelector('.resources-section').style.display = 'block';
     document.querySelector('.notes-section').style.display = 'block';
