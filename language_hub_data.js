@@ -115,7 +115,7 @@ const languageData = {
         name: "Bahasa Melayu",
         flag: "https://flagcdn.com/w80/my.png",
         color: "#059669",
-        wallpaper: "https://images.unsplash.com/photo-1596422846543-75c6fc18a594?q=80&w=1920&auto=format&fit=crop",
+        wallpaper: "malaysia_wallpaper_1777985474275.png",
         weekTerm: "Minggu",
         comicSearch: "malaysia-illustration,comic",
         roadmap: [
