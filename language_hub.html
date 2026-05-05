@@ -110,7 +110,19 @@
         </section>
     </main>
 
-    <script src="language_hub_data.js?v=11"></script>
-    <script src="language_hub.js?v=11"></script>
+    <!-- Welcome Modal -->
+    <div id="welcome-overlay" class="welcome-overlay hidden">
+        <div class="welcome-card">
+            <h2 id="modal-title">Welcome!</h2>
+            <p id="modal-desc">Please enter your name to personalize your study plan.</p>
+            <div class="name-input-group">
+                <input type="text" id="user-name-input" class="name-input" placeholder="Your name..." autocomplete="off">
+            </div>
+            <button id="start-btn" class="start-btn">Start Learning</button>
+        </div>
+    </div>
+
+    <script src="language_hub_data.js?v=12"></script>
+    <script src="language_hub.js?v=12"></script>
 </body>
 </html>

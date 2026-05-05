@@ -80,6 +80,7 @@ function init() {
         showDefaultState();
     }
     updateCountdown();
+    initWelcomeModal();
     
     // Auto-save notes
     const notesArea = document.getElementById('daily-notes');
@@ -101,10 +102,13 @@ function init() {
 
 function showDefaultState() {
     const t = translations[appLanguage];
+    const userName = localStorage.getItem('userName');
+    const welcomeMsg = userName ? `${appLanguage === 'EN' ? 'Welcome back,' : 'Selamat kembali,'} ${userName}!` : t.welcome;
+    
     document.getElementById('current-lang-name').innerText = t.chooseSubject;
     document.getElementById('current-lang-flag').style.display = 'none';
     
-    document.getElementById('lang-title').innerHTML = t.welcome;
+    document.getElementById('lang-title').innerHTML = welcomeMsg;
     document.documentElement.style.setProperty('--accent', '#3b82f6');
     
     // Set default generic study wallpaper
@@ -141,6 +145,39 @@ function updateCountdown() {
     
     const countEl = document.getElementById('days-count-header');
     if (countEl) countEl.innerText = diffDays > 0 ? diffDays : 0;
+}
+
+function initWelcomeModal() {
+    const overlay = document.getElementById('welcome-overlay');
+    const nameInput = document.getElementById('user-name-input');
+    const startBtn = document.getElementById('start-btn');
+    const storedName = localStorage.getItem('userName');
+
+    if (!storedName) {
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Translate modal based on app language
+        if (appLanguage === 'MY') {
+            document.getElementById('modal-title').innerText = "Selamat Datang!";
+            document.getElementById('modal-desc').innerText = "Sila masukkan nama anda untuk peribadikan pelan kajian anda.";
+            nameInput.placeholder = "Nama anda...";
+            startBtn.innerText = "Mula Belajar";
+        }
+    }
+
+    startBtn.onclick = () => {
+        const name = nameInput.value.trim();
+        if (name) {
+            localStorage.setItem('userName', name);
+            overlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            showDefaultState(); // Refresh greeting
+        } else {
+            nameInput.style.borderColor = '#ef4444';
+            setTimeout(() => nameInput.style.borderColor = 'var(--border)', 1000);
+        }
+    };
 }
 
 function renderLanguage(langKey) {
