@@ -79,7 +79,14 @@ function init() {
     } else {
         showDefaultState();
     }
-    updateCountdown();
+    
+    // Apply View Mode preference
+    const savedView = localStorage.getItem('viewMode');
+    if (savedView === 'desktop') {
+        document.body.classList.add('desktop-mode');
+    }
+    updateViewIcon();
+    
     initWelcomeModal();
     
     // Auto-save notes
@@ -137,16 +144,6 @@ function showDefaultState() {
     document.getElementById('progress-bar').style.width = `0%`;
 }
 
-function updateCountdown() {
-    const deadline = new Date(THESIS_DEADLINE);
-    const today = new Date();
-    const diffTime = deadline - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    const countEl = document.getElementById('days-count-header');
-    if (countEl) countEl.innerText = diffDays > 0 ? diffDays : 0;
-}
-
 function initWelcomeModal() {
     const overlay = document.getElementById('welcome-overlay');
     const nameInput = document.getElementById('user-name-input');
@@ -178,6 +175,24 @@ function initWelcomeModal() {
             setTimeout(() => nameInput.style.borderColor = 'var(--border)', 1000);
         }
     };
+}
+
+function toggleViewMode() {
+    const isDesktop = document.body.classList.toggle('desktop-mode');
+    localStorage.setItem('viewMode', isDesktop ? 'desktop' : 'mobile');
+    updateViewIcon();
+}
+
+function updateViewIcon() {
+    const isDesktop = document.body.classList.contains('desktop-mode');
+    const icon = document.getElementById('view-icon');
+    if (isDesktop) {
+        // Phone icon
+        icon.innerHTML = `<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line>`;
+    } else {
+        // Monitor icon
+        icon.innerHTML = `<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>`;
+    }
 }
 
 function renderLanguage(langKey) {

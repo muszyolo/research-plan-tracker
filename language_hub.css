@@ -625,4 +625,45 @@ body {
         font-size: 1.75rem;
     }
 }
+/* Desktop Mode Overrides */
+body.desktop-mode {
+    min-width: 1280px !important;
+    overflow-x: auto !important;
+}
 
+body.desktop-mode .main-content {
+    width: 1280px !important;
+    max-width: none !important;
+    padding: 3rem !important;
+}
+
+body.desktop-mode .header-top {
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+}
+
+body.desktop-mode .course-selector {
+    width: auto !important;
+}
+
+body.desktop-mode .header-controls {
+    width: auto !important;
+    justify-content: flex-end !important;
+}
+
+body.desktop-mode .lang-title {
+    font-size: 3rem !important;
+    flex-direction: row !important;
+}
+
+body.desktop-mode .roadmap-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+}
+
+body.desktop-mode .resource-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+body.desktop-mode .ai-btn {
+    width: auto !important;
+}
