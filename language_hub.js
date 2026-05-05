@@ -1,3 +1,4 @@
+console.log("Language Hub Logic v10 Loaded");
 let currentLanguage = localStorage.getItem('currentLanguage') || null;
 let appLanguage = localStorage.getItem('appLanguage') || 'EN';
 let progress = JSON.parse(localStorage.getItem('langProgress')) || {
