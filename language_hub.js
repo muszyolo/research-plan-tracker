@@ -26,7 +26,7 @@ const translations = {
         welcome: "Welcome to Language Mastery Plan for Yourself",
         noSubject: "No Subject Selected",
         pleaseClick: "Please click the 'Choose your Learning Subject' button above to view your roadmap and resources.",
-        toggleBtn: '<img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-right: 4px;"> EN | MY <img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
+        toggleBtn: '<img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-right: 4px;"> EN | BM <img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
     },
     'MY': {
         myCourses: "KURSUS SAYA",
@@ -41,7 +41,7 @@ const translations = {
         welcome: "Selamat Datang ke Pelan Penguasaan Bahasa Untuk Diri Anda",
         noSubject: "Tiada Subjek Dipilih",
         pleaseClick: "Sila klik butang 'Pilih Subjek Pembelajaran Anda' di atas untuk melihat pelan hala tuju dan sumber anda.",
-        toggleBtn: '<img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-right: 4px;"> MY | EN <img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
+        toggleBtn: '<img src="https://flagcdn.com/w40/my.png" width="18" style="vertical-align: middle; margin-right: 4px;"> BM | EN <img src="https://flagcdn.com/w40/gb.png" width="18" style="vertical-align: middle; margin-left: 4px;">'
     }
 };
 
