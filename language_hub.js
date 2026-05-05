@@ -1,12 +1,12 @@
 let currentLanguage = localStorage.getItem('currentLanguage') || null;
 let appLanguage = localStorage.getItem('appLanguage') || 'EN';
 let progress = JSON.parse(localStorage.getItem('langProgress')) || {
-    english: [], korean: [], chinese: [], philippine: [], malay: [], indonesian: []
+    english: [], korean: [], chinese: [], philippine: [], malay: [], indonesian: [], japanese: []
 };
 
 // Notes storage per language
 let languageNotes = JSON.parse(localStorage.getItem('langNotes')) || {
-    english: "", korean: "", chinese: "", philippine: "", malay: "", indonesian: ""
+    english: "", korean: "", chinese: "", philippine: "", malay: "", indonesian: "", japanese: ""
 };
 
 // Default Thesis Deadline (6 months from now)

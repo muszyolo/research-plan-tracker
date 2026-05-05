@@ -167,5 +167,33 @@ const languageData = {
             { name: "LearningIndonesian", url: "https://www.learningindonesian.com/" },
             { name: "Duolingo", url: "https://www.duolingo.com/learn" }
         ]
+    },
+    japanese: {
+        name: "Japanese",
+        flag: "https://flagcdn.com/w80/jp.png",
+        color: "#bc002d",
+        wallpaper: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1920&auto=format&fit=crop",
+        weekTerm: "Week",
+        comicSearch: "japan-illustration,anime",
+        roadmap: [
+            { week: 1, topic: "Hiragana Basics", topic_my: "Asas Hiragana", concepts: "Vowels & K-Row", concepts_my: "Vokal & Baris-K" },
+            { week: 2, topic: "Katakana", topic_my: "Katakana", concepts: "Foreign Loanwords", concepts_my: "Kata Pinjaman Luar" },
+            { week: 3, topic: "Basic Kanji", topic_my: "Kanji Asas", concepts: "Numbers & Days", concepts_my: "Nombor & Hari" },
+            { week: 4, topic: "Greetings & Intro", topic_my: "Salam & Pengenalan", concepts: "Hajimemashite", concepts_my: "Hajimemashite" },
+            { week: 5, topic: "To be (Desu/Arimasu)", topic_my: "Menjadi (Desu/Arimasu)", concepts: "Existence", concepts_my: "Kewujudan" },
+            { week: 6, topic: "Particles (Wa, Ga, O)", topic_my: "Partikel (Wa, Ga, O)", concepts: "The big 3", concepts_my: "3 Partikel Besar" },
+            { week: 7, topic: "Basic Verbs", topic_my: "Kata Kerja Asas", concepts: "Taberu, Nomu, Iku", concepts_my: "Makan, Minum, Pergi" },
+            { week: 8, topic: "Adjectives", topic_my: "Kata Adjektif", concepts: "I-adj vs Na-adj", concepts_my: "Kata Adjektif-I vs Kata Adjektif-Na" },
+            { week: 9, topic: "Question Words", topic_my: "Kata Tanya", concepts: "Nani, Doko, Itsu", concepts_my: "Apa, Di mana, Bila" },
+            { week: 10, topic: "Time & Places", topic_my: "Masa & Tempat", concepts: "Ni particle", concepts_my: "Partikel Ni" },
+            { week: 11, topic: "Connecting Words", topic_my: "Kata Hubung", concepts: "Soshite, Demo", concepts_my: "Dan, Tetapi" },
+            { week: 12, topic: "JLPT N5 Intro", topic_my: "Pengenalan JLPT N5", concepts: "Vocabulary & Review", concepts_my: "Kosa Kata & Ulasan" }
+        ],
+        resources: [
+            { name: "JapanesePod101", url: "https://www.japanesepod101.com/" },
+            { name: "Tae Kim's Guide", url: "https://guidetojapanese.org/learn/" },
+            { name: "NHK Easy Japanese", url: "https://www.nhk.or.jp/lesson/english/" },
+            { name: "Duolingo", url: "https://www.duolingo.com/learn" }
+        ]
     }
 };
