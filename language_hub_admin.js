@@ -210,7 +210,11 @@ function renderLanguage(langKey) {
     document.querySelector('.notes-section').style.display = 'block';
     
     // Update Header Dropdown UI
-    document.getElementById('current-lang-name').innerText = data.name;
+    let displayName = data.name;
+    if (langKey === 'english' && appLanguage === 'MY') {
+        displayName = "Bahasa Inggeris";
+    }
+    document.getElementById('current-lang-name').innerText = displayName;
     const flagImg = document.getElementById('current-lang-flag');
     flagImg.src = data.flag;
     flagImg.style.display = 'block';
@@ -225,8 +229,8 @@ function renderLanguage(langKey) {
 
     // Update Header Title
     const titleText = appLanguage === 'EN' 
-        ? `${data.name} Mastery Plan for Yourself` 
-        : `Pelan Penguasaan ${data.name} Untuk Diri Anda`;
+        ? `${displayName} Mastery Plan for Yourself` 
+        : `Pelan Penguasaan ${displayName} Untuk Diri Anda`;
     document.getElementById('lang-title').innerHTML = `<img src="${data.flag}" style="width: 48px; border-radius: 4px; border: 1px solid var(--border);"> ${titleText}`;
     document.documentElement.style.setProperty('--accent', data.color);
 
