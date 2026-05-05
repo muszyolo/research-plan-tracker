@@ -194,9 +194,9 @@ function renderLanguage(langKey) {
         const card = document.createElement('div');
         card.className = `week-card ${isCompleted ? 'completed' : ''}`;
         
-        // Apply unique theme based on content
-        const bgKeyword = week.bgQuery || data.name.toLowerCase();
-        const bgUrl = `https://loremflickr.com/400/300/${bgKeyword}`;
+        // Apply unique theme based on language + content alignment
+        const bgKeyword = `${data.name} ${week.bgQuery || ''}`.trim();
+        const bgUrl = `https://loremflickr.com/400/300/${bgKeyword.replace(/\s+/g, ',')}`;
         card.style.backgroundImage = `linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.98)), url('${bgUrl}')`;
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
